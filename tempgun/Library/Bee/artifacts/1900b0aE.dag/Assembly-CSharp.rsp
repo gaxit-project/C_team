@@ -360,6 +360,7 @@
 "Assets/TempRunScript/Goal.cs"
 "Assets/TempRunScript/Opseion.cs"
 "Assets/TempRunScript/PauseScript.cs"
+"Assets/TempRunScript/Player.cs"
 "Assets/TempRunScript/PlayerController1.cs"
 "Assets/TempRunScript/PlayerController2.cs"
 "Assets/TempRunScript/Sound.cs"
