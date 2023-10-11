@@ -23,6 +23,8 @@ public class PlayerController2 : MonoBehaviour {
 	private bool flag = true;
 
 
+	float axisH = 0.0f;
+
 
 
 
@@ -45,7 +47,10 @@ public class PlayerController2 : MonoBehaviour {
 	void Update () {
         anim.SetBool("jump", Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.JoystickButton0));
         anim.SetBool("slide", Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.JoystickButton1));
-		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+
+		axisH = Input.GetAxisRaw("Horizontal");
+
+		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || axisH < 0.0f)
 		{
 			if (transform.position.x > -limit)
 			{
@@ -53,7 +58,7 @@ public class PlayerController2 : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || axisH > 0.0f)
 		{
 			if (transform.position.x < limit)
 			{
