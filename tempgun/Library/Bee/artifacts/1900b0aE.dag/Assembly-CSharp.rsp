@@ -364,6 +364,7 @@
 "Assets/TempRunScript/PlayerController1.cs"
 "Assets/TempRunScript/PlayerController2.cs"
 "Assets/TempRunScript/ScoreScript.cs"
+"Assets/TempRunScript/ScoreScript2.cs"
 "Assets/TempRunScript/Sound.cs"
 "Assets/TempRunScript/StartButtonScript.cs"
 -langversion:9.0

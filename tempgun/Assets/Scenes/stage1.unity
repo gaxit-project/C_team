@@ -2606,8 +2606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 1451314603}
-  minute: 0
-  seconds: 0
 --- !u!114 &1451314603
 MonoBehaviour:
   m_ObjectHideFlags: 0

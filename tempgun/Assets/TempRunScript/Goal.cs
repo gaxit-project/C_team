@@ -8,7 +8,6 @@ public class Goal : MonoBehaviour
     public string sceneName;
 
 
-
     //ƒvƒŒƒCƒ„[‚ª“–‚½‚è”»’è‚É“ü‚Á‚½‚Ìˆ—
     void OnTriggerEnter(Collider other)
     {
