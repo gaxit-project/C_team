@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
-public class PlayerController2 : MonoBehaviour {
+public class PlayerController2 : MonoBehaviour
+{
 
 	public float tmpValue = 50.0f;
 	public Animator anim;
@@ -10,31 +12,65 @@ public class PlayerController2 : MonoBehaviour {
 	public float limit = 1f;
 	public AudioClip sound1;
 
-	AudioSource audioSource;
-	public Slider slider;
+
+	[SerializeField] private Transform _grandChild;
+
+	private float nextTime;
+	public float interval = 0.1f;   // 点滅周期
+
+	Renderer renderComponent1;
+	Renderer renderComponent2;
+	Renderer renderComponent3;
+
+	private bool flag = true;
+
+
+	float axisH = 0.0f;
+	public AudioSource audioSource2;
+
+
+
+
+
+
+
+
 
 	void Start()
 	{
-		//Componentを取得
-		audioSource = GetComponent<AudioSource>();
-		slider.onValueChanged.AddListener(value => this.audioSource.volume = value);
-	}
-	void Update () {
-        anim.SetBool("jump", Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.JoystickButton0));
-        anim.SetBool("slide", Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.JoystickButton1));
-		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-		{
-			if (transform.position.x > -limit)
-			{
-				transform.Translate(Vector3.left * Time.deltaTime *  leftRightSpeed);
-			}
-		}
+		
 
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+		nextTime = Time.time;
+
+		renderComponent1 = transform.Find("Body").gameObject.GetComponent<Renderer>();
+		renderComponent2 = transform.Find("Face").gameObject.GetComponent<Renderer>();
+		renderComponent3 = transform.Find("Hair").gameObject.GetComponent<Renderer>();
+
+
+	}
+	
+	void Update()
+	{
+		anim.SetBool("jump", Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.JoystickButton0));
+		anim.SetBool("slide", Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.JoystickButton1));
+
+		axisH = Input.GetAxisRaw("Horizontal");
+		if (anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
 		{
-			if (transform.position.x < limit)
+			if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || axisH < 0.0f)
 			{
-				transform.Translate(Vector3.left * Time.deltaTime * leftRightSpeed * -1);
+				if (transform.position.x > -limit)
+				{
+					transform.Translate(Vector3.left * Time.deltaTime * leftRightSpeed);
+				}
+			}
+
+			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || axisH > 0.0f)
+			{
+				if (transform.position.x < limit)
+				{
+					transform.Translate(Vector3.left * Time.deltaTime * leftRightSpeed * -1);
+				}
 			}
 		}
 
@@ -42,11 +78,41 @@ public class PlayerController2 : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
+		
 		if (other.gameObject.tag == "wall")
 		{
-			audioSource.PlayOneShot(sound1);
+				
+			
 			Destroy(other.gameObject);
+			StartCoroutine(Blink());
+			audioSource2.PlayOneShot(sound1);
+
+
 		}
+		
+	}
+	IEnumerator Blink()
+	{
+
+		if (flag)
+		{
+			for (int i = 0; i < 5; i++)
+			{
+				flag = false;
+				renderComponent1.enabled = !renderComponent1.enabled;
+				renderComponent2.enabled = !renderComponent2.enabled;
+				renderComponent3.enabled = !renderComponent3.enabled;
+				yield return new WaitForSeconds(0.1f);
+				renderComponent1.enabled = !renderComponent1.enabled;
+				renderComponent2.enabled = !renderComponent2.enabled;
+				renderComponent3.enabled = !renderComponent3.enabled;
+				yield return new WaitForSeconds(0.1f);
+
+
+			}
+			flag = true;
+		}
+		
 	}
 
 }
