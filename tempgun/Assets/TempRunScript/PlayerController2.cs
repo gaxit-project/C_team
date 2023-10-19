@@ -51,8 +51,8 @@ public class PlayerController2 : MonoBehaviour
 	
 	void Update()
 	{
-		anim.SetBool("jump", Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.JoystickButton0));
-		anim.SetBool("slide", Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.JoystickButton1));
+		anim.SetBool("jump", Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.JoystickButton1));
+		anim.SetBool("slide", Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.JoystickButton0));
 
 		axisH = Input.GetAxisRaw("Horizontal");
 		if (anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))

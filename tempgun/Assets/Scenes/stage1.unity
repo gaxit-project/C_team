@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1260,7 +1260,9 @@ MonoBehaviour:
   leftRightSpeed: 10
   limit: 2.5
   sound1: {fileID: 8300000, guid: 0ce02af608433d547bc91099b9b7c1be, type: 3}
-  slider: {fileID: 631688366}
+  _grandChild: {fileID: 0}
+  interval: 0.1
+  audioSource2: {fileID: 848895611020308840}
 --- !u!82 &687424568
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1429,8 +1431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4856e01e207732f4189fd1d18f8cf3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmp: 0
-  max: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,6 +1742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeCdText: {fileID: 2136484401}
   callText: {fileID: 2070332493}
+  max: 0
 --- !u!4 &861911445
 Transform:
   m_ObjectHideFlags: 0
@@ -1771,7 +1772,7 @@ GameObject:
   - component: {fileID: 890716886}
   - component: {fileID: 890716889}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2057,13 +2058,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
+  m_LocalRotation: {x: 0.23344846, y: -0, z: -0, w: 0.9723692}
   m_LocalPosition: {x: 0, y: 3.5, z: -3.125}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 687424574}
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2620,7 +2621,9 @@ MonoBehaviour:
   leftRightSpeed: 10
   limit: 2.5
   sound1: {fileID: 8300000, guid: 0ce02af608433d547bc91099b9b7c1be, type: 3}
-  slider: {fileID: 631688366}
+  _grandChild: {fileID: 0}
+  interval: 0.1
+  audioSource2: {fileID: 0}
 --- !u!136 &1224246592
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2784,7 +2787,9 @@ MonoBehaviour:
   leftRightSpeed: 10
   limit: 2.5
   sound1: {fileID: 8300000, guid: 0ce02af608433d547bc91099b9b7c1be, type: 3}
-  slider: {fileID: 631688366}
+  _grandChild: {fileID: 0}
+  interval: 0.1
+  audioSource2: {fileID: 0}
 --- !u!1 &1260134253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,7 +2803,7 @@ GameObject:
   - component: {fileID: 1260134256}
   - component: {fileID: 1260134255}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3805,7 +3810,7 @@ GameObject:
   - component: {fileID: 1882294055}
   - component: {fileID: 1882294058}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4184,10 +4189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcda8e5103015540a5bbb2b4de4fc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1715646670}
-  player: {fileID: 687424565}
-  counter: {fileID: 621555131}
-  dsSlider: {fileID: 192524358}
 --- !u!1 &2136484400
 GameObject:
   m_ObjectHideFlags: 0
@@ -4357,11 +4358,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2007198679959362611, guid: 6e9ec914fa39dc34980b6caa81ff26e0, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007198679959362611, guid: 6e9ec914fa39dc34980b6caa81ff26e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2007198679959362611, guid: 6e9ec914fa39dc34980b6caa81ff26e0, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2014258424}
+    - target: {fileID: 2007198679959362611, guid: 6e9ec914fa39dc34980b6caa81ff26e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundSliderOnValueChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007198679959362611, guid: 6e9ec914fa39dc34980b6caa81ff26e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChangeSoundVolume, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007198679959362611, guid: 6e9ec914fa39dc34980b6caa81ff26e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2010122010245366595, guid: 6e9ec914fa39dc34980b6caa81ff26e0, type: 3}
       propertyPath: m_Name
@@ -4401,9 +4418,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 423594982}
     m_Modifications:
     - target: {fileID: 2435214254531301486, guid: 1f9a9dbd15172a045b7f10197c5f231b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435214254531301486, guid: 1f9a9dbd15172a045b7f10197c5f231b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 266001422}
+    - target: {fileID: 2435214254531301486, guid: 1f9a9dbd15172a045b7f10197c5f231b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundSliderOnValueChange2
+      objectReference: {fileID: 0}
     - target: {fileID: 2730897419784648620, guid: 1f9a9dbd15172a045b7f10197c5f231b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4545,6 +4570,10 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 631688366}
+    - target: {fileID: 4709417246438835524, guid: b43f86124bfe9044d8bd0312bdde8b43, type: 3}
+      propertyPath: slider2
+      value: 
+      objectReference: {fileID: 631688366}
     - target: {fileID: 8941471712654279709, guid: b43f86124bfe9044d8bd0312bdde8b43, type: 3}
       propertyPath: m_Name
       value: SEsound
@@ -4554,6 +4583,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b43f86124bfe9044d8bd0312bdde8b43, type: 3}
+--- !u!82 &848895611020308840 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8064728511813700758, guid: b43f86124bfe9044d8bd0312bdde8b43, type: 3}
+  m_PrefabInstance: {fileID: 848895611020308839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4160566456982681292
 PrefabInstance:
   m_ObjectHideFlags: 0
