@@ -12,6 +12,7 @@ public class PlayerController2 : MonoBehaviour
 	public float limit = 1f;
 	public AudioClip sound1;
 
+	public float Speed = 1;
 
 	[SerializeField] private Transform _grandChild;
 
@@ -75,6 +76,34 @@ public class PlayerController2 : MonoBehaviour
 		}
 
 
+
+
+		/////////////////////////////////////////
+		if (Input.GetKeyDown(KeyCode.W))
+		{
+			anim.SetFloat("speed", Speed++);
+		}
+
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			anim.SetFloat("speed", Speed = 1);
+		}
+		//////////////////////////////////////////
+		/////////////////////////////////////////
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			transform.Rotate(new Vector3(0, 90, 0));
+		}
+		if (Input.GetKeyDown(KeyCode.K))
+		{
+			transform.Rotate(new Vector3(0, -90, 0));
+		}
+		///////////////////////////////////////////
+
+
+
+
+
 	}
 	void OnTriggerEnter(Collider other)
 	{
@@ -89,7 +118,28 @@ public class PlayerController2 : MonoBehaviour
 
 
 		}
-		
+
+		//加速
+		if (other.gameObject.tag == "acceleration")
+		{
+			//audioSource.PlayOneShot(sound2);
+			anim.SetFloat("speed", Speed = 3);
+		}
+
+		//減速
+		else if (other.gameObject.tag == "deceleration")
+		{
+			//audioSource.PlayOneShot(sound1);
+			anim.SetFloat("speed", Speed = 0.5f);
+		}
+
+		//通常
+		if (other.gameObject.tag == "normal")
+		{
+			//audioSource.PlayOneShot(sound1);
+			anim.SetFloat("speed", Speed = 1);
+		}
+
 	}
 	IEnumerator Blink()
 	{
