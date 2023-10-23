@@ -1,5 +1,3 @@
-//stage1シーンのScoreTextにアタッチ
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,8 +14,9 @@ public class ScoreScript : MonoBehaviour
     public static float seconds;
     private float oldSeconds;
     bool ready = true;
+    //private Text timerText;
 
-    IEnumerator StartCall() //スタートしたらカウントダウンが終わるまで少し待つ
+    IEnumerator StartCall() // コルーチンの追記
     {
         for (int i = 2; i > 0; i--)
         {
@@ -26,29 +25,28 @@ public class ScoreScript : MonoBehaviour
         ready = false;
     }
 
+    // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "stage1")　//シーンの名前がstage1かどうか
+        if (SceneManager.GetActiveScene().name == "stage1")
         {
             ScoreText.text = "";
             minute = 0;
             seconds = 0f;
             oldSeconds = 0f;
             ScoreText = GetComponentInChildren<Text>();
-            StartCoroutine(StartCall()); //StartCallを呼ぶ
+            StartCoroutine(StartCall());
         }
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (ready)
         {
             return;
         }
-        if (GameManager.countdownSeconds > 0) //GameManagerのcountdownSecondsが0より多いか
-        {
-            seconds += Time.deltaTime;
-        }
+        seconds += Time.deltaTime;
         if (seconds >= 60f)
         {
             minute++;

@@ -1,5 +1,3 @@
-//resultシーンのScoreにアタッチ
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +12,13 @@ public class ScoreScript2 : MonoBehaviour
 
     void Start()
     {
-        m = ScoreScript.minute; //ScoreScriptのminuteを代入
-        s = (int)ScoreScript.seconds; //ScoreScriptのsecondsをint型で代入;
-        ScoreText = GetComponentInChildren<Text>(); //ScoreTextには何もD&Dしない
+        m = ScoreScript.minute;
+        s = (int)ScoreScript.seconds;
+        ScoreText = GetComponentInChildren<Text>();
     }
 
     void Update()
     {
-        ScoreText.text = "SCORE " + m.ToString("00") + ":" + s.ToString("00");　//リザルト画面でクリアタイムを表示
+        ScoreText.text = "SCORE " + m.ToString("00") + ":" + s.ToString("00");
     }
 }

@@ -1,46 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-
-
-
-// "AudioSource"コンポーネントがアタッチされていない場合アタッチ
-[RequireComponent(typeof(AudioSource))]
 public class Sound : MonoBehaviour
 {
 
-    public Slider slider2;
-    AudioSource audioSource2;
-
     public AudioClip sound1;
+    public AudioClip sound2;
+    public AudioClip sound3;
+    public AudioClip sound4;
 
-    public void Start()
+    public Slider slider;
+
+    AudioSource audioSource;
+
+    void Start()
     {
-
-        audioSource2 = gameObject.GetComponent<AudioSource>();
-        audioSource2.volume = PlayerPrefs.GetFloat("Volume2");
-        slider2.value = PlayerPrefs.GetFloat("Volume2");
-
+        //Componentを取得
+        audioSource = GetComponent<AudioSource>();
+        slider.onValueChanged.AddListener(value => this.audioSource.volume = value);
     }
-    
+
     void Update()
     {
         // マウス左
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            audioSource2.PlayOneShot(sound1);
+            audioSource.PlayOneShot(sound1);
         }
     }
 
-
-    public void SoundSliderOnValueChange2(float newSliderValue2)
+    public void SoundSliderOnValueChange(float newSliderValue)
     {
-        audioSource2.volume = newSliderValue2;
-        PlayerPrefs.SetFloat("Volume2", newSliderValue2);
-        PlayerPrefs.Save();
+        // 音楽の音量をスライドバーの値に変更
+        audioSource.volume = newSliderValue;
     }
 
 }

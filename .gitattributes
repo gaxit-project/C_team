@@ -2,16 +2,3 @@
 *.tga filter=lfs diff=lfs merge=lfs -text
 *.fbx filter=lfs diff=lfs merge=lfs -text
 *.dag filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/* filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/e5/e515e42809e23fc1b00bd86f7e315a5e filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/dc/dc8aa0bad6b50e16d74f842b6579ce1f filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/a9/a964fb9ad5664820131e9a876ac8fcf3 filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/8e/8e72e7a9dbb067e628bb1bf6ff2e4986 filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/77/778cbaa77b32561a2bdf76e9b4ac750f filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/5d/5dd3ba69bdfdc1e16fefe4b720520b7c filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/44/443a4635c6336d54797afdc429d9354e filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/61/61081b7c1ea09f61c28b43ac68329739 filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/5e/5e99135b8431fc6a903faf40ba18f813 filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/53/53c8f535f97882f69f88cf7eb4956e4 filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/42/4238dc232dc52dcd81be7ae37dfaf6f1 filter=lfs diff=lfs merge=lfs -text
-tempgun/Library/Artifacts/04/04e31569c1e178410cff48ddda73babe filter=lfs diff=lfs merge=lfs -text
