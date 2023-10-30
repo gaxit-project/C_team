@@ -9,20 +9,29 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 public class ChangeSoundVolume : MonoBehaviour
 {
-    public static ChangeSoundVolume instance;
 
     public Slider slider;
     AudioSource audioSource;
 
     public void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        
-        slider.onValueChanged.AddListener(value => this.audioSource.volume = value);
-        
+
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefs.GetFloat("Volume1");
+        slider.value = PlayerPrefs.GetFloat("Volume1");
+
 
 
     }
+    public void SoundSliderOnValueChange(float newSliderValue)
+    {
+        audioSource.volume = newSliderValue;
+        PlayerPrefs.SetFloat("Volume1", newSliderValue);
+        PlayerPrefs.Save();
+    }
+
+
+
 
 
 
